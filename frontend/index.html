@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <title>Blockly Demo: Generating JavaScript</title>
   <script src="./node_modules/blockly/blockly_compressed.js"></script>
-  <script src="./node_modules/blockly/blocks_compressed.js"></script>
-  <script src="./node_modules/blockly/javascript_compressed.js"></script>
+  <!-- <script src="./node_modules/blockly/blocks_compressed.js"></script> -->
+  <script src="./node_modules/blockly/python_compressed.js"></script>
   <script src="./node_modules/blockly/msg/en.js"></script>
+  <script src="blocks.js"></script>
+  <!-- <script src="block_gen.js"></script> -->
 
   <style>
     body {
@@ -38,94 +40,12 @@
         "contents":[
           {
             "kind":"category",
-            "name":"Logic",
+            "name":"Sự kiện",
             "categorystyle":"logic_category",
             "contents":[
               {
                 "kind":"block",
-                "type":"controls_if"
-              },
-              {
-                "kind":"block",
-                "type":"logic_compare"
-              },
-              {
-                "kind":"block",
-                "type":"logic_operation"
-              },
-              {
-                "kind":"block",
-                "type":"logic_negate"
-              },
-              {
-                "kind":"block",
-                "type":"logic_boolean"
-              }
-            ]
-          },
-          {
-            "kind":"category",
-            "name":"Loops",
-            "categorystyle":"loop_category",
-            "contents":[
-              {
-                "kind":"block",
-                "type":"controls_repeat_ext",
-                "inputs":{
-                  "TIMES":{
-                    "block":{
-                      "type":"math_number",
-                      "fields":{
-                        "NUM":10
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "kind":"block",
-                "type":"controls_whileUntil"
-              }
-            ]
-          },
-          {
-            "kind":"category",
-            "name":"Math",
-            "categorystyle":"math_category",
-            "contents":[
-              {
-                "kind":"block",
-                "type":"math_number",
-                "fields":{
-                  "NUM":123
-                }
-              },
-              {
-                "kind":"block",
-                "type":"math_arithmetic"
-              },
-              {
-                "kind":"block",
-                "type":"math_single"
-              }
-            ]
-          },
-          {
-            "kind":"category",
-            "name":"Text",
-            "categorystyle":"text_category",
-            "contents":[
-              {
-                "kind":"block",
-                "type":"text"
-              },
-              {
-                "kind":"block",
-                "type":"text_length"
-              },
-              {
-                "kind":"block",
-                "type":"text_print"
+                "type":"control_if"
               }
             ]
           }
@@ -141,7 +61,7 @@
     function showCode() {
       // Generate JavaScript code and display it.
       // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      var code = Blockly.Python.workspaceToCode(demoWorkspace);
       alert(code);
     }
 
