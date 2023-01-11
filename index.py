@@ -4,14 +4,15 @@ from startup import *
 from functions import *
 
 def clipboardUpdate(port):
-    recent_value = ""
+    recent_value = pyperclip.paste()
     while True:
         tmp_value = pyperclip.paste()
         if tmp_value != recent_value:
             recent_value = tmp_value
             # print("Value changed: " + str(recent_value))
-            saveCode(recent_value)
-            loadFile(port)
+            if recent_value.startswith("import") or recent_value.startswith('from'):
+                saveCode(recent_value)
+                loadFile(port)
         time.sleep(0.5)
 
 def main():
