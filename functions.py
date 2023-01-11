@@ -25,6 +25,7 @@ def loadFile(port):
     processName = ["ampy"]
     processName.append("-p " + port)
     processName.append("put")
+    processName.append("C:/LongDev/easycode-ampy-bridge/main.py")
 
     showNotifcation("Dang nap code...",1)
     process = subprocess.run(processName, capture_output=True)
