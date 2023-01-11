@@ -22,7 +22,7 @@ import subprocess
 import time
 
 def loadFile(port):
-    processName = ["ampy"]
+    processName = ["C:/LongDev/easycode-ampy-bridge/ampy.exe"]
     processName.append("-p " + port)
     processName.append("put")
     processName.append("C:/LongDev/easycode-ampy-bridge/main.py")
@@ -37,7 +37,7 @@ def loadFile(port):
         output = process.stderr.decode()
         output = output.splitlines()
         print(output[-1])
-        showNotifcation("Lỗi:" + output[-1].split(':')[1])
+        showNotifcation("Lỗi:" + output[-2].split(':')[1])
 
 
     

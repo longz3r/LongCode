@@ -5,8 +5,10 @@ import requests
 
 
 def startup():
+    print("Checking requirements...")
     firstTime = False
     if not os.path.exists("C:/LongDev"):
+        print("creating directory")
         os.mkdir("C:/LongDev")
         firstTime = True
     if not os.path.exists("C:/LongDev/easycode-ampy-bridge"):
@@ -22,8 +24,14 @@ def startup():
         firstTime = True
 
     if not os.path.exists("C:/LongDev/easycode-ampy-bridge/icon.ico"):
+        print("downloading ico...")
         response = requests.get("https://longz3r.github.io/icon.ico")
         open("C:/LongDev/easycode-ampy-bridge/icon.ico", "wb").write(response.content)
+
+    if not os.path.exists("C:/LongDev/easycode-ampy-bridge/ampy.exe"):
+        print("downloading ampy...")
+        response = requests.get("https://longz3r.github.io/ampy.exe")
+        open("C:/LongDev/easycode-ampy-bridge/ampy.exe", "wb").write(response.content)
 
 
     if firstTime:
