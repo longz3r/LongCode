@@ -16,10 +16,9 @@ from win10toast import ToastNotifier
 notify = ToastNotifier()
   
 def showNotifcation(message, duration=3):
-    notify.show_toast("Long Code", message, duration = duration,icon_path ="icon.ico")
+    notify.show_toast("Long Code", message, duration = duration,icon_path ="C:/LongDev/easycode-ampy-bridge/icon.ico")
 
 import subprocess
-import time
 
 def loadFile(port):
     processName = ["C:/LongDev/easycode-ampy-bridge/ampy.exe"]
@@ -29,6 +28,11 @@ def loadFile(port):
 
     showNotifcation("Dang nap code...",1)
     process = subprocess.run(processName, capture_output=True)
+
+    # print(process.returncode)
+    # print(process.stdout.decode())
+    # print(process.stderr.decode())
+
     if process.returncode == 0:
         output = process.stdout.decode()
         output = output.splitlines()
@@ -36,7 +40,7 @@ def loadFile(port):
     if process.returncode == 1:
         output = process.stderr.decode()
         output = output.splitlines()
-        print(output[-1])
+        print(output[-2])
         showNotifcation("Lỗi:" + output[-2].split(':')[1])
 
 

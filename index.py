@@ -22,7 +22,7 @@ def main():
     # subprocess.run(["ampy", "-p COM3", "put"])
 
     port = startup()
-    print(port)
+    print("Ready to go")
     clipboardUpdate(port)
 
 
