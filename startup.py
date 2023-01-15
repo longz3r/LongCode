@@ -43,12 +43,8 @@ def startup():
 
     # lastPort = 
 
-    port = input("NHAP CONG COM (COM3, COM4, COM5) ")
-    if len(port) == 4 and port.startswith("COM"):
-        pass
-    elif len(port) == 1:
-        port = "COM" + port
-    else:
-        print("INVALID PORT")
+    import serial.tools.list_ports
+    ports = serial.tools.list_ports.comports()
 
-    return port
+    for port, desc, hwid in sorted(ports):
+        return port

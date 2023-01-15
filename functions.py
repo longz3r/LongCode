@@ -1,5 +1,5 @@
 def saveCode(clipboard):
-    print("Saving code...")
+    showNotification("Da")
     data = clipboard.splitlines()
     # data[-1]+="\n"
     
@@ -7,7 +7,7 @@ def saveCode(clipboard):
     deleteData.close()
     file = open("C:/LongDev/easycode-ampy-bridge/main.py", "a")
     for line in data:
-        file.write(line)
+        file.write(line+"\n")
     file.close()
 
 from win10toast import ToastNotifier
@@ -15,33 +15,20 @@ from win10toast import ToastNotifier
 # create an object to ToastNotifier class
 notify = ToastNotifier()
   
-def showNotifcation(message, duration=3):
+def showNotification(message, duration=1):
     notify.show_toast("Long Code", message, duration = duration,icon_path ="C:/LongDev/easycode-ampy-bridge/icon.ico")
 
 import subprocess
 
 def loadFile(port):
-    processName = ["C:/LongDev/easycode-ampy-bridge/ampy.exe"]
-    processName.append("-p " + port)
-    processName.append("put")
-    processName.append("C:/LongDev/easycode-ampy-bridge/main.py")
+    showNotification("Dang nap code")
+    processName = ["mpfshell", "-n", "-c"]
+    processName[-1] = "open "+port+ "; put C:/LongDev/easycode-ampy-bridge/main.py main.py"
 
-    showNotifcation("Dang nap code...",1)
     process = subprocess.run(processName, capture_output=True)
-
-    # print(process.returncode)
-    # print(process.stdout.decode())
-    # print(process.stderr.decode())
-
-    if process.returncode == 0:
-        output = process.stdout.decode()
-        output = output.splitlines()
-        print(output)
-    if process.returncode == 1:
-        output = process.stderr.decode()
-        output = output.splitlines()
-        print(output[-2])
-        showNotifcation("Lỗi:" + output[-2].split(':')[1])
-
-
-    
+    output = process.stdout.decode()
+    print(output)
+    if ("Connected to esp32" in output):
+        showNotification("Nap code thanh cong")
+    else:
+        showNotification(output)
