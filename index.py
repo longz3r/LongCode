@@ -12,7 +12,7 @@ def clipboardUpdate(port):
             # print("Value changed: " + str(recent_value))
             if recent_value.startswith("import") or recent_value.startswith('from'):
                 saveCode(recent_value)
-                # loadFile(port)
+                loadFile(port)
         time.sleep(0.5)
 
 def main():

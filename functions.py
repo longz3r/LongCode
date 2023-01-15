@@ -1,5 +1,5 @@
 def saveCode(clipboard):
-    showNotification("Da")
+    # showNotification("Dang luu code")
     data = clipboard.splitlines()
     # data[-1]+="\n"
     
@@ -22,13 +22,9 @@ import subprocess
 
 def loadFile(port):
     showNotification("Dang nap code")
-    processName = ["mpfshell", "-n", "-c"]
-    processName[-1] = "open "+port+ "; put C:/LongDev/easycode-ampy-bridge/main.py main.py"
+    processName = ["cmd"]
+    processName.append("/c C:/LongDev/easycode-ampy-bridge/ampy.exe -p " + port +" put C:/LongDev/easycode-ampy-bridge/main.py")
 
     process = subprocess.run(processName, capture_output=True)
     output = process.stdout.decode()
-    print(output)
-    if ("Connected to esp32" in output):
-        showNotification("Nap code thanh cong")
-    else:
-        showNotification(output)
+    showNotification("Da nap code")
