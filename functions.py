@@ -21,10 +21,11 @@ def showNotification(message, duration=1):
 import subprocess
 
 def loadFile(port):
-    showNotification("Dang nap code")
+    showNotification("Đang nạp code")
     processName = ["cmd"]
     processName.append("/c C:/LongDev/easycode-ampy-bridge/ampy.exe -p " + port +" put C:/LongDev/easycode-ampy-bridge/main.py")
 
     process = subprocess.run(processName, capture_output=True)
     output = process.stdout.decode()
-    showNotification("Da nap code")
+    print(output)
+    showNotification("Đã nạp code")

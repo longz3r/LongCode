@@ -29,6 +29,8 @@ def main():
     elif port == None:
         print("Không thể tìm thấy cổng serial nào")
         print("Nếu thiết bị đã được kết nối hãy thử cài đặt lại driver trong easycode")
+        print("Tự động đóng chương trình trong 10s")
+        time.sleep(10)
     else:
         print("LỖI ĐÉO AI BIẾT")
 
