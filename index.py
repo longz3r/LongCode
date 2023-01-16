@@ -22,9 +22,15 @@ def main():
     # subprocess.run(["ampy", "-p COM3", "put"])
 
     port = startup()
-    print("Da ket noi den cong " + str(port))
-    print("Ready to go")
-    clipboardUpdate(str(port))
+    if port != None:
+        print("Đã kết nối đến cổng " + str(port))
+        print("Sẵn sàng")
+        clipboardUpdate(str(port))
+    elif port == None:
+        print("Không thể tìm thấy cổng serial nào")
+        print("Nếu thiết bị đã được kết nối hãy thử cài đặt lại driver trong easycode")
+    else:
+        print("LỖI ĐÉO AI BIẾT")
 
 
 if __name__ == '__main__':
