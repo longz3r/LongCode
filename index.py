@@ -40,12 +40,12 @@ def main():
     if port != None:
         print("Đã kết nối đến cổng " + str(port))
         print("Sẵn sàng")
-        if GetSystemMetrics(0) == 1366 and GetSystemMetrics(1) == 768:
-            print("One button run enabled")
-            print("make sure easycode is maximized")
-            keyboardUpdate(str(port))
-        else:
-            clipboardUpdate(str(port))
+        # if GetSystemMetrics(0) == 1366 and GetSystemMetrics(1) == 768:
+        print("Nhấn F5 để nạp và chạy code")
+        print("make sure easycode is maximized")
+        keyboardUpdate(str(port))
+        # else:
+        #     clipboardUpdate(str(port))
     elif port == None:
         print("Không thể tìm thấy cổng serial nào")
         print("Nếu thiết bị đã được kết nối hãy thử cài đặt lại driver trong easycode")

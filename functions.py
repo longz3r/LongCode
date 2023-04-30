@@ -16,7 +16,7 @@ from win10toast import ToastNotifier
 notify = ToastNotifier()
   
 def showNotification(message, duration=1):
-    notify.show_toast("Long Code", message, duration = duration,icon_path ="C:/LongDev/easycode-ampy-bridge/icon.ico")
+    notify.show_toast("Long Code", message, duration = duration)
 
 import subprocess
 import serial
