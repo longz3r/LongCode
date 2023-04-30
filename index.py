@@ -5,7 +5,7 @@ from functions import *
 import keyboard
 import pyautogui
 
-from win32api import GetSystemMetrics
+# from win32api import GetSystemMetrics
 
 def clipboardUpdate(port):
     recent_value = pyperclip.paste()

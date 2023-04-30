@@ -23,10 +23,10 @@ def startup():
         
         firstTime = True
 
-    if not os.path.exists("C:/LongDev/easycode-ampy-bridge/icon.ico"):
-        print("Đang tải icon...")
-        response = requests.get("https://longz3r.github.io/icon.ico")
-        open("C:/LongDev/easycode-ampy-bridge/icon.ico", "wb").write(response.content)
+    # if not os.path.exists("C:/LongDev/easycode-ampy-bridge/icon.ico"):
+    #     print("Đang tải icon...")
+    #     response = requests.get("https://longz3r.github.io/icon.ico")
+    #     open("C:/LongDev/easycode-ampy-bridge/icon.ico", "wb").write(response.content)
 
     if not os.path.exists("C:/LongDev/easycode-ampy-bridge/ampy.exe"):
         print("Đang tải ampy...")
@@ -37,7 +37,8 @@ def startup():
     if firstTime:
         print("KHỞI ĐỘNG LẦN ĐẦU HOÀN TẤT")
     else:
-        print("KHỞI ĐỘNG HOÀN TẤT")
+        print("KHỞI ĐỘNG THÀNH CÔNG")
+        print("EASYCODE-AMPY BRIDGE v1.4")
 
     # configFile = "C:/LongDev/easycode-ampy-bridge/"
 
